@@ -126,24 +126,24 @@ namespace MyWebApi.Infrastructure.Repository___service
 
         public async Task<string> GetMaxDyeTypeCode()
         {
-            // Get the most recent DyeType
+           
             var maxDyeType = await _repository.GetMaxDyeTypeAsync();
 
             if (maxDyeType == null || string.IsNullOrEmpty(maxDyeType.DyeTypeCode))
             {
-                // If no valid dye type is found, return "DT0001"
+                
                 return "DT0001";
             }
 
-            // Extract the numeric part of the DyeTypeCode and increment it
-            var lastCode = maxDyeType.DyeTypeCode.Substring(2);  // Exclude "DT"
+           
+            var lastCode = maxDyeType.DyeTypeCode.Substring(2);  
             if (int.TryParse(lastCode, out int lastNumber))
             {
                 return "DT" + (lastNumber + 1).ToString("D4");
             }
             else
             {
-                // If there's an issue with the format of the code, return the default code
+              
                 return "DT0001";
             }
         }

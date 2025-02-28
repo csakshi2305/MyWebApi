@@ -8,7 +8,7 @@
         public String? DyeTypeCode { get; set; }
 
         public bool IsActive { get; set; }=true;
-        public int CustomerId { get; set; }
+      
         public int CreatedBy { get; set; }
         public DateTime CreatedOn { get; set; } = DateTime.UtcNow;
 
